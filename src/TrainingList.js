@@ -38,12 +38,16 @@ const remove = async (id) => {
 
   const TrainingList = groups.map(group => {
     return <tr key={group.id}>
-      <td style={{whiteSpace: 'nowrap'}}>{group.name}</td>
-      <td style={{whiteSpace: 'nowrap'}}>{group.entity}</td>
+      <td style ={{whiteSpace: 'nowrap'}}>{group.name}</td>
+      {/* <td style ={{whiteSpace: 'nowrap'}}><Button color="link"><Link to={group.link}>{group.link}</Link></Button></td> */}
+      <td style ={{whiteSpace: 'nowrap'}}>{group.link}</td>      
+      <td style ={{whiteSpace: 'nowrap'}}>{group.duration}</td>
       <td style ={{whiteSpace: 'nowrap'}}>{group.topic}</td>
+      <td style ={{whiteSpace: 'nowrap'}}>{group.entity}</td>
+      <td style ={{whiteSpace: 'nowrap'}}>{group.avgrating}</td>
       <td>
         <ButtonGroup>
-          <Button size="sm" color="primary" tag={Link} to={"/training/" + group.id}>Edit</Button>
+          <Button size="sm" color="primary" tag={Link} to={"/training/edit/" + group.id}>Edit</Button>
           <Button size="sm" color="danger" onClick={() => remove(group.id)}>Delete</Button>
         </ButtonGroup>
       </td>
@@ -62,8 +66,11 @@ const remove = async (id) => {
           <thead>
           <tr>
             <th width="20%">Name</th>
-            <th width="20%">Entity</th>
-            <th>Topic</th>
+            <th width="20%">Link</th>
+            <th width="10%">Duration</th>
+            <th width="15%">topic</th>
+            <th width="15%">Entity</th>
+            <th width="10%">Rating</th>
             <th width="10%">Actions</th>
           </tr>
           </thead>

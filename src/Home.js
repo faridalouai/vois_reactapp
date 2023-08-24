@@ -3,17 +3,14 @@ import './App.css';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
-import Title from './Title';
 
 const Home = () => {
   return (
-    <div>
+     <div style={{ alignItems : "center" }} >
       <AppNavbar/>
-      <Title />
       <Container fluid>
-        <Button color="link"><Link to="/training" >Manage Trainings</Link></Button>
+        <Button style={{fontSize : 40}} tag={Link} to="/training" >Manage Trainings</Button>
       </Container>
-
     </div>
   );
 }

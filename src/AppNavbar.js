@@ -15,9 +15,6 @@ const AppNavbar = () => {
           <NavItem>
             <NavLink href="http://localhost:3000/training">All Trainings</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="http://localhost:3000/training">Search (?)</NavLink>
-          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
