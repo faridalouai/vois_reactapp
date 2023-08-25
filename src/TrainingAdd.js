@@ -10,7 +10,6 @@ const AddTraining = () => {
     duration: '',
     topic: '',
     entity: '',
-    AVG_rating: ''
   };
   const [group, setGroup] = useState(initialFormState);
   const navigate = useNavigate();
@@ -116,17 +115,6 @@ const AddTraining = () => {
               value={group.entity}
               onChange={handleChange}
               autoComplete="entity"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="AVG_rating">Rating</Label>
-            <Input
-              type="text"
-              name="AVG_rating"
-              id="AVG_rating"
-              value={group.AVG_rating}
-              onChange={handleChange}
-              autoComplete="AVG_rating"
             />
           </FormGroup>
           <Button color="primary" type="submit">Save</Button>{' '}

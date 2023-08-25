@@ -67,6 +67,7 @@ const TrainingEdit = () => {
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label for="name">Name</Label>
+            {/* <CustomInput defaultValue={group.name} /> */}
             <Input
               type="text"
               name="name"
