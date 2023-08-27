@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate , useParams } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
 const AddTraining = () => {
   const initialFormState = {
     name: '',
-    link: '',
+    newlink: '',
     duration: '',
     topic: '',
     entity: '',
-    AVG_rating: ''
   };
   const [group, setGroup] = useState(initialFormState);
-  // setnew = useState();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
-
+    if (id === 'new') {
       fetch(`/api/training/new`)
         .then(response => response.json())
         .then(data => setGroup(data));
-  });  
+    }
+  }, [id]);
 
-  /* const handleChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setGroup({ ...group, [name]: value });
-  }; */
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,19 +69,19 @@ const AddTraining = () => {
               name="name"
               id="name"
               value={group.name}
-              onChange={(event) => {setGroup(event.target.value)}}
+              onChange={handleChange}
               autoComplete="name"
             />
           </FormGroup>
           <FormGroup>
-            <Label for="link">Link</Label>
+            <Label for="newlink">Link</Label>
             <Input
               type="text"
-              name="link"
-              id="link"
-              value={group.link}
-              onChange={(event) => {setGroup(event.target.value)}}
-              autoComplete="link"
+              name="newlink"
+              id="newlink"
+              value={group.newlink}
+              onChange={handleChange}
+              autoComplete="newlink"
             />
           </FormGroup>
           <FormGroup>
@@ -91,7 +91,7 @@ const AddTraining = () => {
               name="duration"
               id="duration"
               value={group.duration}
-              onChange={(event) => {setGroup(event.target.value)}}
+              onChange={handleChange}
               autoComplete="duration"
             />
           </FormGroup> 
@@ -102,7 +102,7 @@ const AddTraining = () => {
               name="topic"
               id="topic"
               value={group.topic}
-              onChange={(event) => {setGroup(event.target.value)}}
+              onChange={handleChange}
               autoComplete="topic"
             />
           </FormGroup>
@@ -113,11 +113,10 @@ const AddTraining = () => {
               name="entity"
               id="entity"
               value={group.entity}
-              onChange={(event) => {setGroup(event.target.value)}}
+              onChange={handleChange}
               autoComplete="entity"
             />
           </FormGroup>
-          {/* Similarly, add FormGroups for link, duration, topic, entity, AVG_rating */}
           <Button color="primary" type="submit">Save</Button>{' '}
           <Button color="secondary" tag={Link} to="/training">Cancel</Button>
         </Form>

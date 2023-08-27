@@ -18,7 +18,7 @@ const TrainingEdit = () => {
 
   useEffect(() => {
     if (id !== 'new') {
-      fetch(`/api/training/${id}`)
+      fetch(`/api/training/edit/${id}`)
         .then(response => response.json())
         .then(data => setGroup(data));
     }
@@ -67,6 +67,7 @@ const TrainingEdit = () => {
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label for="name">Name</Label>
+            {/* <CustomInput defaultValue={group.name} /> */}
             <Input
               type="text"
               name="name"
@@ -120,7 +121,6 @@ const TrainingEdit = () => {
               autoComplete="entity"
             />
           </FormGroup>         
-          {/* Similarly, add FormGroups for duration, topic, entity, AVG_rating */}
           <Button color="primary" type="submit">Save</Button>{' '}
           <Button color="secondary" tag={Link} to="/training">Cancel</Button>
         </Form>
