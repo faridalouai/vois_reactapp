@@ -47,7 +47,7 @@ const remove = async (id) => {
       <td style ={{whiteSpace: 'nowrap'}}>{group.avgrating}</td>
       <td>
         <ButtonGroup>
-          <Button size="sm" color="primary" tag={Link} to={"/training/edit/" + group.id}>Edit</Button>
+          <Button size="sm" tag={Link} to={"/training/edit/" + group.id}>Edit</Button>
           <Button size="sm" color="danger" onClick={() => remove(group.id)}>Delete</Button>
         </ButtonGroup>
       </td>

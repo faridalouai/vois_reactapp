@@ -6,7 +6,7 @@ import AppNavbar from './AppNavbar';
 const AddTraining = () => {
   const initialFormState = {
     name: '',
-    newlink: '',
+    link: '',
     duration: '',
     topic: '',
     entity: '',
@@ -74,14 +74,14 @@ const AddTraining = () => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="newlink">Link</Label>
+            <Label for="link">Link</Label>
             <Input
               type="text"
-              name="newlink"
-              id="newlink"
+              name="link"
+              id="link"
               value={group.newlink}
               onChange={handleChange}
-              autoComplete="newlink"
+              autoComplete="link"
             />
           </FormGroup>
           <FormGroup>
